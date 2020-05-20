@@ -4,6 +4,14 @@
 
 [Jumpserver](http://Jumpserver.org/) is the world's first fully open source bastion machine. It uses the GNU GPL v2.0 open source protocol and is a 4A professional operation and maintenance audit system.
 
+FORK FROM https://github.com/kelajin/jumpserver
+
+## Support JMS Version
+
+- 1.5.6
+- 1.5.7
+- 1.5.8
+
 ## TL;DR;
 
 ```bash

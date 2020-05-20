@@ -4,11 +4,19 @@
 
 [Jumpserver](http://Jumpserver.org/) 是全球首款完全开源的堡垒机, 使用 GNU GPL v2.0 开源协议, 是符合 4A 的专业运维审计系统。
 
+FORK FROM https://github.com/kelajin/jumpserver
+
+## 支持版本
+
+- 1.5.6
+- 1.5.7
+- 1.5.8
+
 ## 使用方法
 
 ```bash
 # Testing configuration
-$ helm install my-release ./jumpserver
+$ helm install my-release-name ./jumpserver-chart
 ```
 
 ## 介绍
@@ -24,10 +32,11 @@ $ helm install my-release ./jumpserver
 
 ## 安装
 
-发布名为 `my-release` 的release:
+发布名为 `my-release-name` 的release:
 
 ```bash
-$ helm install my-release ./jumpserver
+$ helm install my-release-name ./jumpserver-chart 或者
+$ deploy/install.sh
 ```
 
 上条命令把默认配置的Jumpserver部署到了kubernetes集群中，[参数](#parameters)一节中列出了配置参数
@@ -36,10 +45,11 @@ $ helm install my-release ./jumpserver
 
 ## Uninstalling the Chart
 
-删除 `my-release` release:
+删除 `my-release-name` release:
 
 ```bash
-$ helm delete my-release
+$ helm delete my-release-name 或者
+$ deploy/delete.sh
 ```
 
 上条命令删除了所有包含在release中的组件
@@ -59,8 +69,8 @@ $ helm delete my-release
 | `jmsGuacamole.enabled` | 开启 guacamole     | `true`  |
 | `jmsKoko.enabled`      | 开启 koko          | `true`  |
 | `jmsLuna.enabled`      | 开启 luna          | `true`  |
-| `mariadb.enabled`      | 开启 mariadb       | `false` |
-| `redis.enabled`        | 开启 redis         | `false` |
+| `mariadb.enabled`      | 开启 mariadb       | `true`  |
+| `redis.enabled`        | 开启 redis         | `true`  |
 
 ### jmsCore.config
 
@@ -95,9 +105,9 @@ $ helm delete my-release
 在`helm install`时通过 `--set key=value[,key=value]` 指定参数. 举例,
 
 ```bash
-$ helm install my-release \
+$ helm install my-release-name \
   --set ingress.enabled=true \
-    ./jumpserver
+    ./jumpserver-chart
 ```
 
 上条命令开启了ingress.
@@ -105,7 +115,8 @@ $ helm install my-release \
 也可以通过 `-f file` 的形式指定一个或多个values.yaml文件. 举例,
 
 ```bash
-$ helm install my-release -f values.yaml ./jumpserver
+$ helm install my-release-name -f values.yaml ./jumpserver-chart 或者
+$ deploy/install.sh
 ```
 
 > **注**: 默认使用 [values.yaml](values.yaml)
@@ -114,8 +125,10 @@ $ helm install my-release -f values.yaml ./jumpserver
 
 - [ ] HA支持，由于koko和guacamole注册机制导致无法实现HA，考虑通过构建自定义镜像或修改源码实现
 - [ ] 自动增删Pod节点并支持指定容器，考虑通过sidecar实现
+- [ ] jumpserver pvc无法正产删除 需要先运行 deploy/delete.sh
 
 ## 相关项目
 
 - https://github.com/jumpserver/jumpserver
 - https://github.com/wojiushixiaobai/docker-compose
+- https://github.com/kelajin/jumpserver
