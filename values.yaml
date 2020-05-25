@@ -252,6 +252,7 @@ jmsKoko:
     type: LoadBalancer
     loadBalancerIP: "127.0.0.1"
     annotations:
+#      metallb.universe.tf/address-pool: production-public-ips
       metallb.universe.tf/address-pool: 127.0.0.1
       # service.beta.kubernetes.io/alicloud-loadbalancer-address-type: intranet
       # service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: 'true'
