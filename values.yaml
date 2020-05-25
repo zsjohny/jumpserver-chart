@@ -250,8 +250,9 @@ jmsKoko:
   # deployed on your metal host
   service:
     type: LoadBalancer
-    loadBalancerIP: "yourLoadBalancerIP"
-    annotations: {}
+    loadBalancerIP: "127.0.0.1"
+    annotations:
+      metallb.universe.tf/address-pool: 127.0.0.1
       # service.beta.kubernetes.io/alicloud-loadbalancer-address-type: intranet
       # service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: 'true'
       # service.beta.kubernetes.io/alicloud-loadbalancer-id: ''
