@@ -60,7 +60,7 @@ jmsCore:
 
   image:
     repository: docker.io/wojiushixiaobai/jms_core
-    tag: 1.5.6
+    tag: 1.5.7
     pullPolicy: Always
 
   command: []
@@ -142,7 +142,7 @@ jmsGuacamole:
 
   image:
     repository: docker.io/wojiushixiaobai/jms_guacamole
-    tag: 1.5.6
+    tag: 1.5.7
     pullPolicy: Always
 
   command: []
@@ -216,7 +216,7 @@ jmsKoko:
 
   image:
     repository: docker.io/wojiushixiaobai/jms_koko
-    tag: 1.5.6
+    tag: 1.5.7
     pullPolicy: Always
 
   command: []
@@ -292,7 +292,7 @@ jmsLuna:
 
   image:
     repository: docker.io/wojiushixiaobai/jms_nginx
-    tag: 1.5.6
+    tag: 1.5.7
     pullPolicy: Always
 
   command:
